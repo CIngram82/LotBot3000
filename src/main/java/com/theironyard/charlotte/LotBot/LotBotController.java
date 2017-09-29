@@ -8,7 +8,6 @@ import java.util.List;
 @RestController
 public class LotBotController {
   List<Lot> parkingLots = new ArrayList<>();
-  List<Space> lotSpaces = new ArrayList<>();
 
   public void postConstruct(int numLots) {
     // we have to create lots of lots here
@@ -33,8 +32,8 @@ public class LotBotController {
   //                      including the license plate # of anyone parked.
   @CrossOrigin
   @RequestMapping(path = "/lots/{id}", method = RequestMethod.GET)
-  private List<Space> getSpaces(@PathVariable("id") int id){
-    return lotSpaces;
+  private Space[] getSpaces(@PathVariable("id") int id){
+    return parkingLots.get(id).getSpaces();
   }
 
   //  POST  /lots/<id>    Park a new car in the specified lot. Must send the Vehicle object
