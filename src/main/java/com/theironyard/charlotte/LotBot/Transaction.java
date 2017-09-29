@@ -52,8 +52,3 @@ public class Transaction {
     this.price = price;
   }
 }
-//Transaction
-//		Vehicle: Vehicle
-//		checkedInDate: Date
-//		checkedOutDate: Date
-//		price: double

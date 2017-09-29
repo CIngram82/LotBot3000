@@ -10,6 +10,14 @@ public class LotBotController {
   List<Lot> parkingLots = new ArrayList<>();
   List<Space> lotSpaces = new ArrayList<>();
 
+  public void postConstruct() {
+    // we have to create lots of lots here
+    // if you want fewer lots than 20
+    // that's okay too
+    for (int i = 0;i < 20;i++) {
+      parkingLots.add(Lot.createLot());
+    }
+  }
 
   //  GET   /lots         Get a list of all lots in the system, including # of spots.
   @CrossOrigin
@@ -30,9 +38,19 @@ public class LotBotController {
   //  POST  /lots/<id>    Park a new car in the specified lot. Must send the Vehicle object
   //                      in the request body.
 
+  @CrossOrigin
+  @RequestMapping(path = "/lots/{index}",method = RequestMethod.POST)
+  private void addCar(@RequestBody Car car, @PathVariable("index") int index){
 
+  }
+}
 
-
+//  @CrossOrigin
+//  @RequestMapping(path = "/books", method = RequestMethod.POST)
+//  public void addBook(@RequestBody Book book) {
+//    books.add(book);
+//
+//  }
 
 }
 
