@@ -1,11 +1,13 @@
 package com.theironyard.charlotte.LotBot;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Transaction {
+  private int id;
+  private static int ID_COUNTER;
   private Vehicle Vehicle;
-  private Date checkedInDate;
-  private Date checkedOutDate;
+  private LocalDateTime checkedInDate;
+  private LocalDateTime checkedOutDate;
   private double price;
 
   public Vehicle getVehicle() {
@@ -16,19 +18,19 @@ public class Transaction {
     this.Vehicle = vehicle;
   }
 
-  public Date getCheckedInDate() {
+  public LocalDateTime getCheckedInDate() {
     return checkedInDate;
   }
 
-  public void setCheckedInDate(Date checkedInDate) {
+  public void setCheckedInDate(LocalDateTime checkedInDate) {
     this.checkedInDate = checkedInDate;
   }
 
-  public Date getCheckedOutDate() {
+  public LocalDateTime getCheckedOutDate() {
     return checkedOutDate;
   }
 
-  public void setCheckedOutDate(Date checkedOutDate) {
+  public void setCheckedOutDate(LocalDateTime checkedOutDate) {
     this.checkedOutDate = checkedOutDate;
   }
 
@@ -44,11 +46,21 @@ public class Transaction {
 
   }
 
-  public Transaction(Vehicle Vehicle, Date checkedInDate, Date checkedOutDate, double price) {
+  public int getId() {
+    return id;
+  }
 
-    this.Vehicle = Vehicle;
-    this.checkedInDate = checkedInDate;
-    this.checkedOutDate = checkedOutDate;
-    this.price = price;
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public static Transaction createTransaction(Vehicle Vehicle, LocalDateTime checkedInDate, double price) {
+    Transaction t = new Transaction();
+    t.setVehicle(Vehicle);
+    t.setCheckedInDate(checkedInDate);
+    t.setPrice(price);
+    t.setId(ID_COUNTER);
+    ID_COUNTER++;
+    return t;
   }
 }
