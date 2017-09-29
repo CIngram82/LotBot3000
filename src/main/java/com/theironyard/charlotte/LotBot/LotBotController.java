@@ -10,11 +10,11 @@ public class LotBotController {
   List<Lot> parkingLots = new ArrayList<>();
   List<Space> lotSpaces = new ArrayList<>();
 
-  public void postConstruct() {
+  public void postConstruct(int numLots) {
     // we have to create lots of lots here
     // if you want fewer lots than 20
     // that's okay too
-    for (int i = 0;i < 20;i++) {
+    for (int i = 0;i < numLots;i++) {
       parkingLots.add(Lot.createLot());
     }
   }
@@ -23,6 +23,8 @@ public class LotBotController {
   @CrossOrigin
   @RequestMapping(path = "/lots", method = RequestMethod.GET)
   private List<Lot> getAllLots(){
+    postConstruct(3);
+
     return parkingLots;
   }
 
@@ -50,9 +52,7 @@ public class LotBotController {
 //  public void addBook(@RequestBody Book book) {
 //    books.add(book);
 //
-//  }
-
-}
+//
 
 //  The API
 //  There are two key concepts that the entire Lot Bot system is based on: lots and cars. The API should support the following operations, and all should use JSON for encoding request and response bodies.
