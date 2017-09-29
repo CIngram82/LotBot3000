@@ -1,10 +1,7 @@
 package com.theironyard.charlotte.LotBot;
 
-import java.util.Date;
-
 public class Space {
   private Vehicle Vehicle;
-  private Date timeIn;
 
   public Space(Vehicle Vehicle) {
     this.Vehicle = Vehicle;

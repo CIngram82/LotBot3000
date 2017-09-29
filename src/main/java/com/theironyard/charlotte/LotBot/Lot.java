@@ -4,7 +4,7 @@ public class Lot {
   private int id;
   static private int NUM_CREATED;
   private Space[] spaces;
-//  private double price;
+  private double price;
 
   public int getId() {
     return id;
@@ -30,14 +30,29 @@ public class Lot {
     this.id = id;
     this.spaces = spaces;
   }
-  public static Lot createLot() {
+
+  public static int getNumCreated() {
+    return NUM_CREATED;
+  }
+
+  public static void setNumCreated(int numCreated) {
+    NUM_CREATED = numCreated;
+  }
+
+  public double getPrice() {
+    return price;
+  }
+
+  public void setPrice(double price) {
+    this.price = price;
+  }
+
+  public static Lot createLot(int price, int spots) {
     Lot l = new Lot();
+    l.setPrice(price);
     l.setId(NUM_CREATED++);
-    l.setSpaces(new Space[(int)(Math.random() * 50)]);
+    l.setSpaces(new Space[spots]);
 
     return l;
   }
 }
-//Lot
-//		id: int
-//		spaces: Space[]

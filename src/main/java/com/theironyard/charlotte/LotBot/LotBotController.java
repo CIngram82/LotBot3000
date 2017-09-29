@@ -9,20 +9,19 @@ import java.util.List;
 public class LotBotController {
   List<Lot> parkingLots = new ArrayList<>();
 
-  public void postConstruct(int numLots) {
-    // we have to create lots of lots here
-    // if you want fewer lots than 20
-    // that's okay too
-    for (int i = 0;i < numLots;i++) {
-      parkingLots.add(Lot.createLot());
-    }
+  public void postConstruct() {
+    parkingLots.add(Lot.createLot(10,10));
+    parkingLots.add(Lot.createLot(20,25));
+    parkingLots.add(Lot.createLot(30,30));
+    parkingLots.add(Lot.createLot(40,10));
+    parkingLots.add(Lot.createLot(50,4));
   }
 
   //  GET   /lots         Get a list of all lots in the system, including # of spots.
   @CrossOrigin
   @RequestMapping(path = "/lots", method = RequestMethod.GET)
   private List<Lot> getAllLots(){
-    postConstruct(3);
+    postConstruct();
 
     return parkingLots;
   }
@@ -40,9 +39,11 @@ public class LotBotController {
   //                      in the request body.
 
   @CrossOrigin
-  @RequestMapping(path = "/lots/{index}",method = RequestMethod.POST)
-  private void addCar(@RequestBody Car car, @PathVariable("index") int index){
+  @RequestMapping(path = "/lots/{id}/{index]",method = RequestMethod.POST)
+  private void addCar(@RequestBody Car car, @PathVariable("index") int index, @PathVariable("id") int id){
 
+    Space[] listSpaces= parkingLots.get(index).getSpaces();
+    listSpaces[id].setVehicle(car);
   }
 }
 
