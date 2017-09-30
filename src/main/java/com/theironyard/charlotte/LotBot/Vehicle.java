@@ -14,6 +14,13 @@ public class Vehicle {
     return licensePlate;
   }
 
+  @Override
+  public String toString() {
+    return "Vehicle{" +
+        "licensePlate='" + licensePlate + '\'' +
+        '}';
+  }
+
   public void setLicensePlate(String licensePlate) {
     this.licensePlate = licensePlate;
   }

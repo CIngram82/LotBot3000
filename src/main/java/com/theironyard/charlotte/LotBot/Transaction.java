@@ -54,6 +54,17 @@ public class Transaction {
     this.id = id;
   }
 
+  @Override
+  public String toString() {
+    return "Transaction{" +
+        "id=" + id +
+        ", Vehicle=" + Vehicle +
+        ", checkedInDate=" + checkedInDate +
+        ", checkedOutDate=" + checkedOutDate +
+        ", price=" + price +
+        '}';
+  }
+
   public static Transaction createTransaction(Vehicle Vehicle, LocalDateTime checkedInDate, double price) {
     Transaction t = new Transaction();
     t.setVehicle(Vehicle);

@@ -1,22 +1,29 @@
 package com.theironyard.charlotte.LotBot;
 
 public class Space {
-  private Vehicle Vehicle;
+  private Vehicle vehicle;
 
-  public Space(Vehicle Vehicle) {
-    this.Vehicle = Vehicle;
+  @Override
+  public String toString() {
+    return "Space{" +
+        "vehicle=" + vehicle +
+        '}';
+  }
+
+  public Space(Vehicle vehicle) {
+    this.vehicle = vehicle;
   }
 
   public Space() {
   }
 
   public Vehicle getVehicle() {
-    return Vehicle;
+    return vehicle;
   }
 
   public void setVehicle(Vehicle vehicle) {
-    this.Vehicle = vehicle;
+    this.vehicle = vehicle;
   }
 }
 //Space
-//		Vehicle: Vehicle
+//		vehicle: vehicle
