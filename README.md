@@ -7,6 +7,8 @@ but due to an odd number of students I was building a backend for 2 different Fr
 Both of them had different thoughts and demands for what I would be providing them. The instructors challenged 
 me to solve it using just a single backend for both of my teammates. 
 
+https://lotbot3000.herokuapp.com/lots 
+
 ### Skills I used and learned for this project.
 * Java 
 * JPA 
